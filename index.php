@@ -63,7 +63,7 @@
               <li class="active"><a href="/">Home</a></li>
               <li><a href="dvd-list.php">List Film</a></li>
 			  <li><a href="chart.php">Chart</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.php">Contact</a></li>
             </ul>
           </div>
         </div>

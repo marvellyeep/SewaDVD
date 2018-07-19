@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 09:18 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Jul 19, 2018 at 04:13 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -76,7 +78,16 @@ CREATE TABLE `film` (
 INSERT INTO `film` (`ID_FILM`, `ID_JENIS`, `ID_KATEGORI`, `COVER`, `JUDUL_FILM`, `TAHUN_FILM`, `HARGA_FILM`, `STATUS_FILM`, `JUMLAH_KALI_DIPINJAM`) VALUES
 ('F111', 'J001', 'K001', 'https://www.goldenglobes.com/sites/default/files/styles/portrait_medium/public/films/finding_nemo.jpeg?itok=grIy9dHa&c=bce87a9e2fc72060ed86405504fbb373', 'finding nemo', 2003, 2500, 1, 100),
 ('F131', 'J003', 'K001', 'https://images-na.ssl-images-amazon.com/images/I/71W0PHrQpEL._SY550_.jpg', 'captain amerika', 2014, 3000, 1, 70),
-('F451', 'J003', 'K004', 'https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SY679_.jpg', 'Avengers: Infinity War', 2018, 3000, 1, 500);
+('F190', 'J003', 'K004', 'http://sidomi.com/wp-content/uploads/2014/06/transformers_age_of_extinction_ver201-410x6001.jpg', 'transformers', 2015, 13000, 1, 357),
+('F234', 'J003', 'K002', 'https://images-na.ssl-images-amazon.com/images/I/91VKfyGGkYL._AC_SX215_.jpg', 'god of war', 2010, 7000, 1, 20),
+('F314', 'J001', 'K004', 'https://s4.bukalapak.com/img/483125675/w-1000/Dvd_Doraemon.png', 'doraemon', 2007, 9000, 1, 360),
+('F411', 'J003', 'K004', 'https://www.mwpcgame.com/wp-content/uploads/2017/01/Iron-Man-cover-260x280.jpg', 'iron man', 2011, 7000, 1, 301),
+('F451', 'J003', 'K004', 'https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SY679_.jpg', 'Avengers: Infinity War', 2018, 3000, 1, 500),
+('F484', 'J004', 'K001', 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/HotelTransylvania.jpg/220px-HotelTransylvania.jpg', 'Hotel transilvania', 2012, 8000, 1, 50),
+('F611', 'J001', 'K001', 'https://images-na.ssl-images-amazon.com/images/I/81PPGkrQpWL._SY445_.jpg', 'despicable me', 2009, 13000, 1, 268),
+('F612', 'J003', 'K004', 'https://upload.wikimedia.org/wikipedia/en/thumb/8/84/The_Amazing_Spider-Man_2_cover.png/220px-The_Amazing_Spider-Man_2_cover.png', 'the amazing spiderman', 2010, 10000, 1, 289),
+('F710', 'J001', 'K001', 'https://vignette.wikia.nocookie.net/spongebob/images/8/8c/Sponge-Bob-Squarepants-vcd-inlay-1-1.jpg/revision/latest?cb=20170409162407', 'spongebob', 2007, 8000, 1, 0),
+('F918', 'J003', 'K002', 'https://vignette.wikia.nocookie.net/naruto/images/d/da/Ultimate_Ninja_5.jpg/revision/latest?cb=20130728020710', 'naruto ultimate ninja 5', 2009, 9000, 1, 70);
 
 -- --------------------------------------------------------
 
@@ -332,6 +343,7 @@ ALTER TABLE `transaksi_pinjam`
   ADD CONSTRAINT `FK_DILAKUKAN_OLEH` FOREIGN KEY (`ID_PEMINJAM`) REFERENCES `peminjam` (`ID_PEMINJAM`),
   ADD CONSTRAINT `FK_DILAYANI_OLEH` FOREIGN KEY (`ID_PETUGAS`) REFERENCES `petugas` (`ID_PETUGAS`),
   ADD CONSTRAINT `FK_MEMILIKI_1` FOREIGN KEY (`ID_FILM`) REFERENCES `film` (`ID_FILM`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

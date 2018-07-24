@@ -288,7 +288,7 @@
         </table>
       </div>
     </div>
-    <center>Copyright &copy; 2018 Twitter Trending Indonesia</center>
+    <center>Copyright &copy; SEWA DVD KUY!!</center>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
   </body>

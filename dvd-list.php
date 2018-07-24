@@ -154,7 +154,26 @@
           </div>
         </div>
         <a href="#modal_tambah_film" data-toggle="modal"><button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Film</button></a>
-        <table class="table table-hover table-striped">
+		<form>
+  <div class="form-row align-items-center">
+    <div class="col-sm-3 my-1 col-md-offset-5">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Judul</span>
+        <input type="text" name="judul" class="form-control" id="inlineFormInputGroupUsername" placeholder="Judul film">
+      </div>
+    </div>
+    <div class="col-sm-3 my-1 col-md-offset-1">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Tahun</span>
+        <input type="text" name="tahun" class="form-control" id="inlineFormInputGroupUsername" placeholder="Tahun film">
+      </div>
+    </div>
+	<div class="col-auto my-1">
+      <button type="submit" hidden>Submit</button>
+    </div>
+  </div>
+</form>
+		<table class="table table-hover table-striped">
           <thead>
             <th>No.</th>
             <th>Cover</th>
@@ -165,13 +184,15 @@
           </thead>
           <tbody>
             <?php
-              $premi = $mysqli->query("SELECT * FROM film where STATUS_FILM = '1'");
-                  if($premi->num_rows > 0){
-                      $x=1;
+			if(!empty($_GET['judul'])){
+				$carijudul = $_GET['judul'];
+    $premi = $mysqli->query("select * from film where JUDUL_FILM LIKE '%$carijudul%'");
+    if($premi->num_rows > 0){
+        $x=1;
                       while($row = $premi->fetch_array()){
               			$id_flm = $row["ID_FILM"];
                         $cover = $row["COVER"];
-                        $judul = $row["JUDUL_FILM"];
+                        $judul = ucwords($row["JUDUL_FILM"]);
               			$tahun = $row["TAHUN_FILM"];
               			$harga = $row["HARGA_FILM"];
                           
@@ -192,8 +213,76 @@
                                   <td>No data</td>
                                   <td>No data</td>
                                   <td>No data</td>
+								  <td>No data</td>
+                                  <td>No data</td>
                               </tr>';
                   }
+			} else if(!empty($_GET['tahun'])){
+				$caritahun = $_GET['tahun'];
+    $premi = $mysqli->query("select * from film where TAHUN_FILM = '$caritahun'");
+    if($premi->num_rows > 0){
+        $x=1;
+                      while($row = $premi->fetch_array()){
+              			$id_flm = $row["ID_FILM"];
+                        $cover = $row["COVER"];
+                        $judul = ucwords($row["JUDUL_FILM"]);
+              			$tahun = $row["TAHUN_FILM"];
+              			$harga = $row["HARGA_FILM"];
+                          
+                          echo '<tr>
+                                  <td>'.$x.'</td>
+                                  <td><img src="'.$cover.'" width="15%"></td>
+                                  <td>'.$judul.'</td>
+                                  <td>'.$tahun.'</td>
+              					<td>'.$harga.'</td>
+              					<td><a href="form_ubah.php?id='.$id_flm.'"<i class="fa fa-pencil-square-o"></i> | <a href="delete.php?id='.$id_flm.'" target="_blank"><i class="fa fa-window-close"></i></a></td>
+                              </tr>';
+                          
+                          $x++;
+                      }
+                  } else {
+                      echo '<tr>
+                                  <td>No data</td>
+                                  <td>No data</td>
+                                  <td>No data</td>
+                                  <td>No data</td>
+								  <td>No data</td>
+                                  <td>No data</td>
+                              </tr>';
+                  }
+			} else {
+              $premi = $mysqli->query("SELECT * FROM film where STATUS_FILM = '1'");
+                  if($premi->num_rows > 0){
+                      $x=1;
+                      while($row = $premi->fetch_array()){
+              			$id_flm = $row["ID_FILM"];
+                        $cover = $row["COVER"];
+                        $judul = ucwords($row["JUDUL_FILM"]);
+              			$tahun = $row["TAHUN_FILM"];
+              			$harga = $row["HARGA_FILM"];
+                          
+                          echo '<tr>
+                                  <td>'.$x.'</td>
+                                  <td><img src="'.$cover.'" width="15%"></td>
+                                  <td>'.$judul.'</td>
+                                  <td>'.$tahun.'</td>
+              					<td>'.$harga.'</td>
+              					<td><a href="form_ubah.php?id='.$id_flm.'"<i class="fa fa-pencil-square-o"></i> | <a href="delete.php?id='.$id_flm.'" target="_blank"><i class="fa fa-window-close"></i></a></td>
+                              </tr>';
+                          
+                          $x++;
+                      }
+                  } else {
+                      echo '<tr>
+                                  <td>No data</td>
+                                  <td>No data</td>
+                                  <td>No data</td>
+                                  <td>No data</td>
+								  <td>No data</td>
+                                  <td>No data</td>
+                              </tr>';
+                  }
+				}
               ?>
           </tbody>
         </table>

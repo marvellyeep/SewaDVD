@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2018 at 04:13 AM
+-- Generation Time: Jul 25, 2018 at 09:31 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -76,9 +76,8 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`ID_FILM`, `ID_JENIS`, `ID_KATEGORI`, `COVER`, `JUDUL_FILM`, `TAHUN_FILM`, `HARGA_FILM`, `STATUS_FILM`, `JUMLAH_KALI_DIPINJAM`) VALUES
-('F111', 'J001', 'K001', 'https://www.goldenglobes.com/sites/default/files/styles/portrait_medium/public/films/finding_nemo.jpeg?itok=grIy9dHa&c=bce87a9e2fc72060ed86405504fbb373', 'finding nemo', 2003, 2500, 1, 100),
+('F111', 'J001', 'K001', 'https://www.goldenglobes.com/sites/default/files/styles/portrait_medium/public/films/finding_nemo.jpeg?itok=grIy9dHa&c=bce87a9e2fc72060ed86405504fbb373', 'finding nemo', 2003, 2580, 1, 100),
 ('F131', 'J003', 'K001', 'https://images-na.ssl-images-amazon.com/images/I/71W0PHrQpEL._SY550_.jpg', 'captain amerika', 2014, 3000, 1, 70),
-('F190', 'J003', 'K004', 'http://sidomi.com/wp-content/uploads/2014/06/transformers_age_of_extinction_ver201-410x6001.jpg', 'transformers', 2015, 13000, 1, 357),
 ('F234', 'J003', 'K002', 'https://images-na.ssl-images-amazon.com/images/I/91VKfyGGkYL._AC_SX215_.jpg', 'god of war', 2010, 7000, 1, 20),
 ('F314', 'J001', 'K004', 'https://s4.bukalapak.com/img/483125675/w-1000/Dvd_Doraemon.png', 'doraemon', 2007, 9000, 1, 360),
 ('F411', 'J003', 'K004', 'https://www.mwpcgame.com/wp-content/uploads/2017/01/Iron-Man-cover-260x280.jpg', 'iron man', 2011, 7000, 1, 301),
